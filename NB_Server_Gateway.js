@@ -52,7 +52,7 @@ function responseSensor(client, data) {
         client.write(data, 'utf-8');
     } catch (ex) {
         console.error(ex);
-        log.logger.exception(ex);
+        // log.logger.exception(ex);
     }
 }
 
@@ -72,7 +72,7 @@ function handleClient(client) {
                 console.log(requestStr);
                 const strSubReq = requestStr.substring(findResult1);
                 const dataType = strSubReq.substring(4, 6);
-                log.logger.debug(`packet is ${strSubReq}, data_type is DF${dataType}0`);
+                // log.logger.debug(`packet is ${strSubReq}, data_type is DF${dataType}0`);
                 
                 if (dataType === "01") {
                     [attrResult, tokenId] = df702.parseDataDF702(strSubReq.trim().toUpperCase());
@@ -81,20 +81,20 @@ function handleClient(client) {
                 }
                 
                 console.log(`attr is ${attrResult}, token_id is ${tokenId}`);
-                log.logger.debug(`attr is ${attrResult}, token_id is ${tokenId}`);
+                // log.logger.debug(`attr is ${attrResult}, token_id is ${tokenId}`);
                 
                 if (attrResult !== "" && tokenId !== "") {
                     uploadData(attrResult, tokenId);
-                    log.logger.debug("after upload data ");
+                    // log.logger.debug("after upload data ");
                 } else {
-                    log.logger.debug("invalid data ");
+                    // log.logger.debug("invalid data ");
                 }
                 
                 setTimeout(() => {
                     client.end();
                 }, 1000);
                 
-                log.logger.debug("close device connection");
+                // log.logger.debug("close device connection");
             }
         });
 
@@ -104,7 +104,7 @@ function handleClient(client) {
         });
     } catch (error) {
         console.error(error);
-        log.logger.error(error);
+        // log.logger.error(error);
     }
 }
 
@@ -122,5 +122,5 @@ server.listen(port_number, '0.0.0.0', () => {
 
 server.on('error', (error) => {
     console.error(error);
-    log.logger.error(error);
+    // log.logger.error(error);
 });
