@@ -58,7 +58,6 @@ function responseSensor(client, data) {
 
 function handleClient(client) {
   
-console.log(data)   
     try {
         client.setTimeout(10000); // 10 seconds timeout
         let requestBytes = Buffer.from([]);
