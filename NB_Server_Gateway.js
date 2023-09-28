@@ -57,7 +57,8 @@ function responseSensor(client, data) {
 }
 
 function handleClient(client) {
-   
+console.log(strSubReq.trim().toUpperCase())   
+console.log(data)   
     try {
         client.setTimeout(10000); // 10 seconds timeout
         let requestBytes = Buffer.from([]);
@@ -78,7 +79,7 @@ function handleClient(client) {
                 if (dataType === "01") {
                     [attrResult, tokenId] = df702.parseDataDF702(strSubReq.trim().toUpperCase());
                 } else if (dataType === "16") {
-                    [attrResult, tokenId] = df556.df.parse_data_DF556(data);
+                    [attrResult, tokenId] = df556.df.parse_data_DF556(strSubReq.trim().toUpperCase());
                 }
                 
                 console.log(`attr is ${attrResult}, token_id is ${tokenId}`);
