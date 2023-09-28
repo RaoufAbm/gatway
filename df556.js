@@ -86,6 +86,6 @@ function parse_data_DF556(req_data) {
 }
 
 // Example usage:
-const req_data = "800016022101656000000000000168008045C41865385060029872000181";
-const result = parse_data_DF556(req_data);
-console.log("RES/"+result);
+// const req_data = "800016022101656000000000000168008045C41865385060029872000181";
+// const result = parse_data_DF556(req_data);
+// console.log("RES/"+result);
