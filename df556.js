@@ -1,17 +1,12 @@
 // ToDo: will add DF556 nb-iot support in near future
 // Import JSON module
 // const JSON = require('circular-json');
+const { Model } = require('sequelize');
 const utility = require('./utility');
+class df {
 
-class DF556 {
-   
-    // Parse data to attr DF556 TCP
-    // Param: req_data: input data string in upper format
-    //        attr_result: output attr
-    //        token_id: token for thingsboard, imei
-    // "80 00 16 02 1E 0265 00 00 0000 0000 0168 008045C4 1865385060029872 0001 81“ heart beat/alarm without gps
-    // "80 00 16 03 20 0405 003C 0A 1E 4B 1E 14 1460081912008446 00 1865385060029872 81" event packet with gps
     static parse_data_DF556(req_data) {
+
 
         let originalString = req_data;
         let charactersToRemove = 10; // Number of characters to remove from the right
@@ -110,6 +105,9 @@ class DF556 {
         }
     }
 }
+    //module.exports.myFunction = function() { parse_data_DF556 }
+    module.exports={df}
+
 
 // // Example usage:
 // //const reqData = "80 00 16 02 1E 0265 00 00 0000 0000 0168 008045C4 1865385060029872 0001 81";
