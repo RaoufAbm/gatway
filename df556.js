@@ -17,7 +17,7 @@ function parse_data_DF556(req_data) {
           const data_battery_alarm = parseInt(req_data.slice(25, 26), 16);
           const data_volt = parseInt(req_data.slice(26, 30), 16) / 100;
           const data_rsrp_origin = req_data.slice(30, 38);
-          const data_rsrp = parseFloat(utility.IEEE754_Hex_To_Float(data_rsrp_origin));
+          const data_rsrp = 0//parseFloat(utility.IEEE754_Hex_To_Float(data_rsrp_origin));
           const data_frame_counter = parseInt(req_data.slice(54, 58), 16);
 
           attr_result.height = data_height;
