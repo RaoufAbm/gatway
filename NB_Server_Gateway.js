@@ -77,7 +77,7 @@ function handleClient(client) {
                 if (dataType === "01") {
                     [attrResult, tokenId] = df702.parseDataDF702(strSubReq.trim().toUpperCase());
                 } else if (dataType === "16") {
-                    [attrResult, tokenId] = df556.DF556.parse_data_DF556(data);
+                    [attrResult, tokenId] = df556.df.parse_data_DF556(data);
                 }
                 
                 console.log(`attr is ${attrResult}, token_id is ${tokenId}`);
