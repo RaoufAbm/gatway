@@ -7,11 +7,11 @@ class df {
     static parse_data_DF556(req_data) {
 
 
-        let originalString = req_data;
-        let charactersToRemove = 10; // Number of characters to remove from the right
-        let newString = originalString.substr(0, originalString.length - charactersToRemove);
-        req_data=newString
-        console.log(req_data);
+        // let originalString = req_data;
+        // let charactersToRemove = 10; // Number of characters to remove from the right
+        // let newString = originalString.substr(0, originalString.length - charactersToRemove);
+        // req_data=newString
+        // console.log(req_data);
         try {
             const data_type = req_data.substring(6, 8);
             const data_len = parseInt(req_data.substring(8, 10), 16);
