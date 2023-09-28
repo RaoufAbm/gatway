@@ -1,7 +1,6 @@
 // ToDo: will add DF556 nb-iot support in near future
 // Import JSON module
 // const JSON = require('circular-json');
-const { Model } = require('sequelize');
 const utility = require('./utility');
 class df {
 
