@@ -83,7 +83,7 @@ function handleClient(client) {
                     [attrResult, tokenId] = df556.df.parse_data_DF556(strSubReq.trim().toUpperCase());
                 }
                 
-                console.log(`attr is ${attrResult}, token_id is ${tokenId}`);
+                console.log(`attr___ is ${attrResult}, token_id is____ ${tokenId}`);
                 // log.logger.debug(`attr is ${attrResult}, token_id is ${tokenId}`);
                 
                 if (attrResult !== "" && tokenId !== "") {
