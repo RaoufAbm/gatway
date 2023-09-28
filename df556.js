@@ -3,7 +3,6 @@
 // const JSON = require('circular-json');
 const utility = require('./utility');
 
-utility
 class DF556 {
    
     // Parse data to attr DF556 TCP
