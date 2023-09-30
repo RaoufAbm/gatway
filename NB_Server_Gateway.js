@@ -11,19 +11,20 @@ let token_id = "";
 function uploadData(attr, token) {
     try {
         console.log("try to upload data");
-        const str_url = "/api/v1/" + token + "/telemetry";
+        const str_url = "/login";// + token + "/telemetry";
         const len_attr = attr.length;
         const headers = {
-            "Host": "www.dingtek.com:YYYY",
+            "Host": "192.168.179.44",
             "User-Agent": "curl/7.55.1",
             "Accept-Language": "*/*",
             "Content-Type": "application/json",
+            "Authorization":"token",
             "Content-Length": len_attr.toString(),
         };
 
         const options = {
-            hostname: "www.dingtek.com",
-            port: 6000,
+            hostname: "192.168.179.44",
+            port: 5000,
             path: str_url,
             method: "POST",
             headers: headers,
@@ -68,18 +69,16 @@ function handleClient(client) {
             requestBytes = Buffer.concat([requestBytes, data]);
             const requestStr = requestBytes.toString('hex');
             const findResult1 = requestStr.indexOf("8000");
-            
             if (findResult1 !== -1) {
-                console.log(requestStr);
                 const strSubReq = requestStr.substring(findResult1);
                 const dataType = strSubReq.substring(4, 6);
                 // log.logger.debug(`packet is ${strSubReq}, data_type is DF${dataType}0`);
-                
                 if (dataType === "01") {
                     [attrResult, tokenId] = df702.parseDataDF702(strSubReq.trim().toUpperCase());
-                } else if (dataType === "16") {
+                }
+                 else if (dataType === "16") {
                     
-                    console.log(strSubReq.trim().toUpperCase());
+                    console.log( strSubReq.trim().toUpperCase());
                     [attrResult, tokenId] = df556.df.parse_data_DF556(strSubReq.trim().toUpperCase());
                 }
                 
@@ -115,7 +114,9 @@ const server = net.createServer((client) => {
     console.log('connected');
     console.log(`${client.remoteAddress}:${client.remotePort} connected!`);
     //log.logger.debug(`${client.remoteAddress}:${client.remotePort} connected!`);
+    client.write('yes');
     handleClient(client);
+
 });
 
 server.listen(port_number, '0.0.0.0', () => {
